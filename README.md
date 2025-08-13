@@ -1,17 +1,17 @@
 # Background-Subtraction-for-Moving-Object-detection
 A high-performance Python implementation of the Embedded Background Subtraction (EBGS) algorithm for moving object detection, based on the 2021 paper.
 
-# Complete Technical Analysis of EBGS: A Full-Process Optimization-Based Background Subtraction Framework
+# Complete Technical Analysis of EBGS: A Full-Process Optimisation-Based Background Subtraction Framework
 
 ## Overview and Problem Statement
 
-The **Embedded Background Subtraction (EBGS)** paper addresses a critical challenge in computer vision: developing an efficient background subtraction algorithm that can run in real-time on resource-constrained embedded devices while maintaining high detection accuracy. The authors propose a **full-process optimization** approach that simultaneously optimizes all three components of background subtraction: background modeling, post-processing, and model updating.
+The **Embedded Background Subtraction (EBGS)** paper addresses a critical challenge in computer vision: developing an efficient background subtraction algorithm that can run in real-time on resource-constrained embedded devices while maintaining high detection accuracy. The authors propose a **full-process optimisation** approach that simultaneously optimises all three components of background subtraction: background modelling, post-processing, and model updating.
 
 ## Complete System Architecture and Flow
 
 ### Core Design Philosophy
 
-EBGS follows a **streamlined design methodology** with three key optimization principles:
+EBGS follows a **streamlined design methodology** with three key optimisation principles:
 
 1. **Computational Efficiency**: Minimize processing overhead across all stages
 2. **Memory Optimization**: Reduce memory footprint for embedded deployment  
@@ -21,7 +21,7 @@ The complete system flow is illustrated in Figure 1 of the paper, showing the in
 
 ## Detailed Technical Components
 
-### 1. Background Modeling and Foreground Detection
+### 1. Background Modelling and Foreground Detection
 
 #### 1.1 Contracted Codebook Model
 
@@ -126,7 +126,7 @@ $$
 - **Update Bounds**: $$ \alpha \in [0.05, 1.0] $$ prevents model stagnation
 
 ### Real-World Deployment
-The paper demonstrates **practical applicability** through extensive testing on challenging scenarios including:
+The paper demonstrates **practical applicability** through extensive testing on challenging scenarios, including:
 - Indoor/outdoor surveillance
 - Variable lighting conditions  
 - Dynamic background elements
@@ -134,5 +134,3 @@ The paper demonstrates **practical applicability** through extensive testing on 
 - Camera movement tolerance
 
 This comprehensive framework represents a significant advancement in embedded computer vision by providing both theoretical rigor and practical efficiency for real-time background subtraction applications.
-
-[1] https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/48520623/5f9af7f0-9f54-4f02-aa3e-9efa9a7d6a0b/EBGS_Paper.pdf
