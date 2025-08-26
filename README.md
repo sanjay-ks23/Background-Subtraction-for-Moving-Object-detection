@@ -25,12 +25,12 @@ The complete system flow is illustrated in Figure 1 of the paper, showing the in
 
 #### 1.1 Contracted Codebook Model
 
-**Core Concept**: Each pixel maintains its own **contracted codebook** $$ C = \{c_1, c_2, ..., c_L\} $$ where each codeword $$ c_k $$ contains:
+**Core Concept**: Each pixel maintains its own **contracted codebook** $ C = \{c_1, c_2, ..., c_L\} $ where each codeword $ c_k $ contains:
 
-- **Color channels**: $$ R, G, B $$ intensity values
-- **Grayscale value**: $$ g $$  
-- **Weight**: $$ w $$ (importance/frequency)
-- **Last update time**: $$ \theta $$
+- **Color channels**: $ R, G, B $ intensity values
+- **Grayscale value**: $ g $  
+- **Weight**: $ w $ (importance/frequency)
+- **Last update time**: $ \theta $
 
 **Initialization Process**:
 ```
@@ -50,7 +50,7 @@ $$
 \mu_{k,t+1} = (1-\lambda)\mu_{k,t} + \lambda X_t
 $$
 
-where $$ \lambda $$ is the learning rate and $$ X_t $$ represents pixel values at frame $$ t $$.
+where $ \lambda $ is the learning rate and $ X_t $ represents pixel values at frame $ t $.
 
 #### 1.2 Codeword Selection and Pruning
 
@@ -68,7 +68,7 @@ $$
 
 **Hierarchical Detection Process**:
 
-**Stage 1 - Grayscale Detection** (Lower threshold $$ T_L = 10 $$):
+**Stage 1 - Grayscale Detection** (Lower threshold $ T_L = 10 $):
 ```
 if |grayscale_current - grayscale_model| ≤ T_L:
     classify as background
@@ -76,7 +76,7 @@ else:
     proceed to Stage 2
 ```
 
-**Stage 2 - Color Channel Verification** (Higher threshold $$ T_H = 17 $$):
+**Stage 2 - Color Channel Verification** (Higher threshold $ T_H = 17 $):
 $$
 MAP = \begin{cases}
 0, & \text{if } |X_i - \mu_i| \leq T_H \text{ for } i \in \{R,G,B\} \\
@@ -121,9 +121,9 @@ $$
 - **Power Consumption**: Optimized for battery-powered outdoor deployment
 
 ### Parameter Sensitivity
-- **Threshold Selection**: $$ T_L = 10, T_H = 17 $$ empirically determined
-- **AIMD Parameter**: $$ \tau = 7 $$ balances accuracy and computational cost
-- **Update Bounds**: $$ \alpha \in [0.05, 1.0] $$ prevents model stagnation
+- **Threshold Selection**: $ T_L = 10, T_H = 17 $ empirically determined
+- **AIMD Parameter**: $ \tau = 7 $ balances accuracy and computational cost
+- **Update Bounds**: $ \alpha \in [0.05, 1.0] $ prevents model stagnation
 
 ### Real-World Deployment
 The paper demonstrates **practical applicability** through extensive testing on challenging scenarios, including:
