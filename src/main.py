@@ -1,5 +1,6 @@
 import cv2
 import argparse
+import numpy as np
 from ebgs.ebgs_algorithm import EBGS
 import os
 
