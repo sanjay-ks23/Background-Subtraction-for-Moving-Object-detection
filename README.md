@@ -52,7 +52,7 @@ $$
 
 where $ \lambda $ is the learning rate and $ X_t $ represents pixel values at frame $ t $.
 
-#### 1.2Codeword Selection and Pruning
+#### 1.2 Codeword Selection and Pruning
 
 **Dynamic Codeword Management**:
 $$
