@@ -36,9 +36,14 @@ class PostProcessor:
         return filtered_mask
 
     def dynamic_group(self, mask):
-        num_labels, labels, stats, _ = cv2.connectedComponentsWithStats(mask, connectivity=8)
+        # Ensure the input mask is a uint8 array for cv2.connectedComponentsWithStats
+        mask_uint8 = (mask > 0).astype(np.uint8)
+        
+        num_labels, labels, stats, _ = cv2.connectedComponentsWithStats(mask_uint8, connectivity=8)
         
         if num_labels < 2:
-            return mask
+            # No foreground components found, return an empty mask of the correct type
+            return np.zeros_like(mask, dtype=np.uint8)
 
-        return labels > 0
+        # Return a new mask where all component pixels are set to 255
+        return ((labels > 0) * 255).astype(np.uint8)

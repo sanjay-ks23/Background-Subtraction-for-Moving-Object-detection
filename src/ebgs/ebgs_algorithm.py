@@ -12,17 +12,16 @@ class EBGS:
 
     def process_frame(self, frame):
         initial_mask = self.background_model.process_frame(frame, self.frame_index)
+
+        # Convert the boolean mask to uint8 for post-processing and display
+        final_mask = (initial_mask * 255).astype(np.uint8)
         
         if self.frame_index > self.background_model.training_frames:
             # The new background model is efficient, so we apply post-processing after training.
-            filtered_mask = self.post_processor.aimd_filter(initial_mask)
+            # The post-processing functions expect a uint8 mask.
+            filtered_mask = self.post_processor.aimd_filter(final_mask)
             final_mask = self.post_processor.dynamic_group(filtered_mask)
-        else:
-            final_mask = initial_mask
 
         self.frame_index += 1
         
-        # Convert boolean mask to uint8 for display
-        final_mask_display = (final_mask * 255).astype(np.uint8)
-        
-        return final_mask_display
+        return final_mask
