@@ -6,15 +6,14 @@ import os
 import glob
 
 def process_image_sequence(images_path, output_path, display=True):
-    # Handle the 'input' subdirectory structure for the Change Detection 2014 dataset
-    input_dir = os.path.join(images_path, 'input')
-    if not os.path.isdir(input_dir):
-        print(f"Error: 'input' directory not found in {images_path}")
+    # The user should provide the direct path to the directory containing the image files.
+    if not os.path.isdir(images_path):
+        print(f"Error: Image directory not found at {images_path}")
         return
 
-    image_files = sorted(glob.glob(os.path.join(input_dir, '*.jpg')))
+    image_files = sorted(glob.glob(os.path.join(images_path, '*.jpg')))
     if not image_files:
-        print(f"No JPG images found in {input_dir}")
+        print(f"No JPG images found in {images_path}")
         return
 
     # Read the first image to get dimensions
@@ -96,7 +95,7 @@ def process_video(video_path, output_path, display=True):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="EBGS Algorithm for Background Subtraction")
     parser.add_argument("--video", type=str, help="Path to the video file.")
-    parser.add_argument("--images", type=str, help="Path to the directory of images (e.g., a video category from the Change Detection 2014 dataset).")
+    parser.add_argument("--images", type=str, help="Path to the directory containing the input image files (e.g., 'dataset/baseline/highway/input').")
     parser.add_argument("--output", type=str, help="Path to the output directory for masks. If not provided, masks will not be saved.")
     parser.add_argument("--no-display", action="store_true", help="Disable real-time display of video and masks.")
     args = parser.parse_args()
