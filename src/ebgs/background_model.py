@@ -41,8 +41,9 @@ class BackgroundModel:
             if len(self.codewords) < self.max_codewords:
                 self.add_codeword(pixel_data, frame_index)
             else:
-                oldest_codeword = min(self.codewords, key=lambda cw: cw['last_update'])
-                self.codewords.remove(oldest_codeword)
+                last_updates = [cw['last_update'] for cw in self.codewords]
+                oldest_index = np.argmin(last_updates)
+                self.codewords.pop(oldest_index)
                 self.add_codeword(pixel_data, frame_index)
             return 1
 
