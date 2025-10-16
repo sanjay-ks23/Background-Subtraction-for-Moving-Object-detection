@@ -24,6 +24,7 @@ The complete system flow is illustrated in Figure 1 of the paper, showing the in
 ### 1. Background Modelling and Foreground Detection
 
 #### 1.1 Contracted Codebook Model
+
 **Core Concept**: Each pixel maintains its own **contracted codebook** $ C = \{c_1, c_2, ..., c_L\} $ where each codeword $ c_k $ contains:
 
 - **Color channels**: $ R, G, B $ intensity values
