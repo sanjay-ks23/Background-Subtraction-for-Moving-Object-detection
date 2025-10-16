@@ -62,7 +62,7 @@ $$
 **Key Constraints**:
 - Maximum 5 codewords per pixel (memory limitation)
 - Stationary foreground absorption: Objects static for >20 frames become background
-- Replacement strategy: Remove oldest codeword when limit exceeded
+- Replacement strategy: Remove the oldest codeword when limit exceeded
 
 #### 1.3 Dual-Threshold Detection Strategy
 
