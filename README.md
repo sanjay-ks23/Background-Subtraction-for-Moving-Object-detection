@@ -73,7 +73,7 @@ $$
 if |grayscale_current - grayscale_model| ≤ T_L:
     classify as background
 else:
-    proceed to Stage 2
+    Proceed to Stage 2
 ```
 
 **Stage 2 - Color Channel Verification** (Higher threshold $ T_H = 17 $):
